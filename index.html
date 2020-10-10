@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>疫情直通车_工商小站</title>
+<meta name="description" content="网站描述" />
+<meta name="keywords" content="关键词" />
+<meta name="author" content="order by" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<link rel="stylesheet" type="text/css" href="style/css/style_2_common.css" />
+<link rel="stylesheet" type="text/css" href="style/css/style_2_portal_index.css" />
+<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="style/js/common.js" type="text/javascript"></script>
+<script src="style/js/pace.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link href="style/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="nv_portal" class="pg_index">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="toptb" class="cl" style="display:none;"> </div>
+<div id="hd" style="background:#FFF; height:60px; border-bottom:1px solid #E6E6E6; ">
+  <div class="clear"></div>
+  <div id="week_nav">
+    <div class="wk_navwp">
+      <div class="wk_lonav">
+        <div class="wk_logo">
+          <h2><a href="index.html" title=""><img src="style/images/logo.jpg" alt="" border="0" /></a></h2>
+        </div>
+        <div class="wk_inav">
+          <ul class="nav">
+            <li><a href="index.html">首页</a></li>
+            
+            <li><a href="facemask.html" >口罩预约</a></li>
+            
+            <li><a href="news.html" >新闻资讯</a></li>
+            
+            <li><a href="detailed.html" >数据分析</a></li>
+            
+            <li><a href="traffic.html" >人员流动</a></li>
+            
+            <li><a href="rumor.html" >疫情谣言</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id="mu" class="cl">
+  <div class="wp"> </div>
+</div>
+<script src="style/js/week_nav.js" type="text/javascript"></script>
+<div id="wp" class="wp">
+<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script> 
+<script src="style/js/jquery.fullpage.min.js" type="text/javascript"></script> 
+<script src="style/js/scoll.js" type="text/javascript"></script> 
+<script src="style/js/addons.js" type="text/javascript"></script> 
+<script src="style/js/case.js" type="text/javascript"></script> 
+<script src="style/js/tab.lib.js" type="text/javascript"></script> 
+<script type="text/javascript">
+
+PTM(document).ready(function(){
+
+PTM(".wk_about").tab({
+
+tabId:"#wk_about_menu",tabTag:"a",conId:"#wk_about_div",conTag:"div.wk_aaa",act:"mouseover",effact: "scrollx",dft:0
+
+});
+
+});
+
+</script> 
+</div>
+<div class="clear"></div>
+<div class="wk_index_main"> 
+  
+  <!--page1-->
+  
+  <div class="section page1">
+    <div class="wk_slide-wrap">
+      <ul>
+        <li id="wk_s1" class="wk_selected">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner13"><img src="style/images/banner13.png" alt="" /></div>
+            <div class="wk_banner12"><img src="style/images/banner12.png" alt="" /></div>
+            <div class="wk_banner14"><img src="style/images/banner14.png" alt="" /></div>
+
+          </div>
+        </li>
+        <li id="wk_s2">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner22"><img src="style/images/banner22.png" alt="" /></div>
+            <div class="wk_banner23"><img src="style/images/banner23.png" alt="" /></div>
+            <div class="wk_banner24"><a href="index.html#cases">了解更多</a></div>
+          </div>
+        </li>
+        <li id="wk_s3">
+          <div class="wk_banner"></div>
+          <div class="wk_wrap">
+            <div class="wk_banner32"><img src="style/images/banner32.png" alt="" /></div>
+            <div class="wk_banner33"><img src="style/images/banner33.png" alt="" /></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="wk_arrow"><a href="#service"><img src="style/images/ico3.png" /></a></div>
+    <div class="wk_slide-nav-wrap">
+      <div id="wk_slide-nav">
+        <ul>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container active" data-index="0"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            </a></li>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container" data-index="1"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            </a></li>
+          <li class="wk_nav-line"></li>
+          <li class="wk_nav-bullet-container" data-index="2"><a class="nav-link" href="javascript:void(0)">
+            <div class="nav-bullet"></div>
+            </a></li>
+          <li class="wk_nav-line"> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!--page2-->
+
+  <div class="section page2">
+    <div class="wk_fwxm">
+      <ul>
+        <li class="wk_li1">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>众志成城</h2>
+            <p>UNITY IS STRENGTH</p>
+            <div class="wk_fwxm_des">这世上，可能没有全能超人，也可能没有超级英雄。但只要你我一样的普通人发光发热，点点萤火，可以汇聚成照亮人间的璀璨星河。</div>
+            <div class="wk_ljzx"><a href="index.html#about" >了解更多</a></div>
+          </div>
+        </li>
+        <li class="wk_li2">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>心怀希望</h2>
+            <p>WITH HOPE</p>
+            <div class="wk_fwxm_des">总有一天，艰难的局面会过去，曾经的伤痛会变成历史记忆。相信暖阳会从地平线上升起，温暖你我；也相信冬天埋的骨，会开出漫野春樱。</div>
+            <div class="wk_ljzx"><a href="index.html#about">了解更多</a></div>
+          </div>
+        </li>
+        <li class="wk_li3">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>保持乐观</h2>
+            <p>REMAIN OPTIMISTIC</p>
+            <div class="wk_fwxm_des">希望是我们这个时代，像钻石一样珍贵的东西。逾是黑暗的时候，愈能闪光。不管局面有多恶劣，只要我们心存希望，新的转机就会从人心的地平线上升起，一寸寸照亮大江南北。</div>
+            <div class="wk_ljzx"><a href="index.html#about">了解更多</a></div>
+          </div>
+        </li>
+        <li class="wk_li4">
+          <div class="wk_fwxm_bg"></div>
+          <div class="wk_fwxm_main">
+            <div class="wk_fwxm_ico"></div>
+            <h2>铭记生命</h2>
+            <p>REMEMBER LIFE</p>
+            <div class="wk_fwxm_des">有一盏灯灭了，但这个世界，被燃得更亮。没有曜灵升起，没有繁星如沸，点点萤火，也可以汇聚成璀璨星河，照亮一度被迷雾笼罩的人间。只是，等有一天迷雾散去，人间灯火通明，请不要忘记，曾有一盏灯，用自己的微光撕开了暗夜的一角，又经千万人接力，才让这世间薪火不灭，温澜潮生。</div>
+            <div class="wk_ljzx"><a href="index.html#about" >了解更多</a></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!--page3-->
+  
+  <div class="section page3">
+    <div class="case">
+	<h2><img src="style/images/case_title.png" alt="" /></h2>
+      <h2 class="wk_h2"><img src="style/images/case_title1.png" alt="" /></h2>
+      <div class="wk_btndiv"> <a class="abtn aleft" href="javascript:void(0);"></a> <a class="abtn aright" href="javascript:void(0);"></a> </div>
+      <div class="wk_scrollcontainer">
+        <ul>
+          <li>
+            <div class="wk_case_list"> <a href="Protect.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F31G05F1913-lp.jpg" width="275" height="190"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="Self_check.html" target="_blank">
+              <div class="wk_case_img"><img src="uploads/1-1F31G05524557-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="c_distribution.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F31G054451A-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="Community_distribution.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F31G054123I-lp.jpg" width="275" height="190"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="rumor.html" target="_blank">
+              <div class="wk_case_img"><img src="uploads/1-1F31G05244325-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="submit.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F31G05144R2-lp.jpg" width="275" height="190"/></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="traffic.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F31G05040124-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+<div class="wk_case_list"> <a href="detailed.html" target="_blank">
+              <div class="wk_case_img"><img src="uploads/1-1F3161T2144V-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+
+          </li>
+          <li>
+            <div class="wk_case_list"> <a href="facemask.html" target="_blank" >
+              <div class="wk_case_img"><img src="uploads/1-1F3161T0133Y-lp.jpg" width="275" height="190" /></div>
+              <div class="wk_case_ico"></div>
+              <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
+              </a> </div>
+
+          </li>
+        </ul>
+        
+        <!--首页-案例-内部调用代码设置位置--> 
+        
+      </div>
+    </div>
+    <script type="text/javascript">
+
+PTM(function(){
+
+PTM(".case").Xslider({
+
+unitdisplayed:1,
+
+numtoMove:1,
+
+speed:500,
+
+scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
+
+})
+
+})
+
+</script> 
+  </div>
+  
+  <!--page4-->
+  
+  <div class="section page4">
+    <div class="wk_about">
+      <h2><img src="style/images/about_title.png" alt="" /></h2>
+      <h2 class="wk_h2"><img src="style/images/about_title1.png" alt=""/></h2>
+      <div class="wk_about_menu" id="wk_about_menu"><a class="active">简介</a><a>动态</a><a>历程</a></div>
+      <div class="wk_about_div" id="wk_about_div">
+        <div class="wk_about_main wk_aaa">
+          <div class="wk_about_left"><img src="style/images/about_img.png" alt="" /></div>
+          <div class="wk_about_right">
+             <a><img src="style/images/index.jpg" alt="" /></a> 
+              <div class="clear"></div>
+            <div class="wk_about_des" style="margin: 0 1.875rem ;">
+			<li>新年的钟声响彻九州，疾病与灾难都会成为岁月的尘埃。总会有一天，这里没有歇斯底里的哭喊，也没有绝望与黑暗，春风会吹开这里的樱花，一树又一树尽连成蔽日的云朵。在这片疾病肆虐过的冰冷土地上，是即将破土而出的春天。</li>
+			<br>
+			<li>没有一个冬天不可逾越，没有一个春天不会来临。尽管疫情的阴霾仍然笼罩，但希望就在前方。当阳光驱散阴霾，每一粒种子都会肆意生长，迎接生命的春天，在这片土地上绽放光芒。</li><br>
+
+			<li>武汉，因为坚强而不屈！所以成为一座英雄的城市！
+
+中国，因为身后是一个伟大的民族，所以才让他变成现在这个倔强不服输的性格！
+
+武汉，中国，相同的血脉，造就了手足之情；优秀的基因，传承的是同一种韧劲：无论任何时候遇到任何困难，56个民族的大家庭，永远都血浓于水！
+
+武汉，一座城，因为（COVID—19），自己被感动了；武汉，也是因为（COVID—19），感动的确是一国人！ </li>
+            </div>
+          </div>
+        </div>
+		
+        <div id="news1" class="wk_news_list wk_aaa">
+          <ul v-for="data in datashow">
+            <li >
+              <dl>
+                <dt><p>{{data.ftime}}</p></dt>
+              </dl>
+              <h4><a :href="data.url" :title="data.title" target="_blank"><p>{{data.title}}</p></a></h4>
+              <div class="wk_news_des">发布者：{{data.wx_name}}</div>
+              <div class="wk_news_more"><a :href="data.url" title="阅读更多" target="_blank"></a></div>
+            </li>
+          </ul>
+          <!--首页-新闻动态-内部调用代码设置位置-->   
+        </div>
+<script>
+	var vm =new Vue({
+		el:"#news1",
+		data:{
+			datalist:[]
+		},
+		computed: {
+		  datashow: function () {
+		    return this.datalist.slice(0, 4)
+		  }
+		},
+		mounted(){
+			axios({
+				method:'get',
+				url:"http://120.55.67.204:8188/news/getCityNewsList",
+				params: {
+				   cityName: '重庆'
+				 }
+			}).then(res=>{
+			    console.log(res.data.data.result) 
+			    this.datalist = res.data.data.result.whole
+			}).catch(err=>{
+			    console.log(err);
+			})
+		}
+	})
+</script>		
+        <div class="wk_history wk_aaa">
+          <div class="wk_blk_18"> <a class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></a>
+            <div class="wk_pcont" id="ISL_Cont_11">
+              <div class="ScrCont">
+                <div id="List1_1">
+                  <div id="List1_1">
+                    <div class="wk_fzlc_s">
+                      <h4>2019年12月31日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/1231.jpg"></dt>
+                        <dd>中国报告了湖北省武汉市的一组肺炎病例，最终确认了一种新型冠状病毒...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年1月12日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0112.jpg"></dt>
+                        <dd>中国科学院武汉病毒所获得新冠病毒全基因组序列，并向全世界分享，香港检视针对疫情的预防措施...
+                          </dd>
+                      </dl>
+                    </div>
+                    <div class="wk_fzlc_s">
+                      <h4>2020年1月16日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0116.jpg"></dt>
+                        <dd>武汉卫健委称截止1月15日24时，累计有<a style="color:red">41</a>例...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年1月19日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0119.jpg"></dt>
+                        <dd>武汉卫健委称部分病例没有华南海鲜批发市场接触史，广东确认首例输入性确诊病例...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年1月21日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0121.jpg"></dt>
+                        <dd>世卫组织称新冠肺炎可能持续“人传人”,武汉15例医护人员感染...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年1月22日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0122.jpg"></dt>
+                        <dd>国家卫健委发布第三版诊疗方案，武汉要求全市在公共场所佩戴口罩，湖北启动突发公共卫生事件二级应急响应...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年1月23日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0123.jpg"></dt>
+                        <dd>早10点，武汉封城，火神山医院开建，多地进入重大突发公共卫生事件一级应急响应...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年1月26日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0126.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">2000</a>人，雷神山医院开建，国家卫建委称新冠病毒潜伏期最长14天且具有传染性...</dd>
+                      </dl>
+                    </div>	
+
+                    <div class="wk_fzlc_s">
+                      <h4>2020年1月28日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0128.jpg"></dt>
+                        <dd>疫情救治费用个人负担部分由财政给予补助，WHO称新型冠状病毒对全球构成高风险...</dd>
+                      </dl>
+                    </div>	
+
+                    <div class="wk_fzlc_b">
+                      <h4>2020年1月29日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0129.jpg"></dt>
+                        <dd>全国31个省市自治区及港澳台地区均现确诊病例，西藏启用重大突发公共卫生事件一级响应...</dd>
+                      </dl>
+                    </div>	
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年1月31日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0131.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">10000</a>人。...</dd>
+                      </dl>
+                    </div>	
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月2日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0202.jpg"></dt>
+                        <dd>火神山医院得到正式交付，湖北将集中隔离所有疑似病例，全国铁路客运车站开展进站或出站测温工作...</dd>
+                      </dl>
+                    </div>						
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月3日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0203.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">20000</a>人，武汉建筑“方舱医院”用于收治轻症患者...</dd>
+                      </dl>
+                    </div>	
+
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月6日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0206.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">30000</a>人，湖北给予张定宇和张继先记大功奖励，瑞德西韦临床试验启动...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月7日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0207.jpg"></dt>
+                        <dd>李文亮医生殉职，国家监察委员会决定全面调查李文龙医生事件，深圳、成都、广州所有小区实现封闭式管理...</dd>
+                      </dl>
+                    </div>	
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月8日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0208.jpg"></dt>
+                        <dd>王贺胜调任湖北省常委，陈一新担任中央指导组组长。火神山医院接收第一批确诊患者，雷神山医院交付使用...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月9日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0209.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">40000</a>人，呼和浩特卫健委主任被免职...</dd>
+                      </dl>
+                    </div>	
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月12日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0212.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">50000</a>人，砖石公主号新增39例确诊病例，累计174例...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月13日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0213.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">60000</a>人，应用担任湖北省委书记，王忠林任武汉市委书记...</dd>
+                      </dl>
+                    </div>	
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月16日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0216.jpg"></dt>
+                        <dd>全国累计确诊病例超过<a style="color:red">70000</a>人，国家卫健委称全国各地疫情防控效果已显现...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月19日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0219.jpg"></dt>
+                        <dd>云南出现首例新冠肺炎死亡病例，湖北省外新增确诊病例16连降，全国13地新增病例为0...</dd>
+                      </dl>
+                    </div>	
+
+                    <div class="wk_fzlc_b">
+                      <h4>2020年2月24日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0224.jpg"></dt>
+                        <dd>广东省决定重大突发公共卫生事件一级响应调整为二级响应，世卫组织称中国疫情顶峰已过，尚未构成全球性大流行...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年2月27日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0227.jpg"></dt>
+                        <dd>日本累计确诊新冠肺炎891例，砖石公主号累计确诊705例，伊朗副总统新冠病毒检测呈阳性...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年3月1日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0301.jpg"></dt>
+                        <dd>武汉首家“方舱医院”休舱，31省市新增202例新冠肺炎患者，累计病例破<a style="color:red">80000</a>例，国家卫建委表示全国治愈出院比例达到52.1%...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_s">
+                      <h4>2020年3月2日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0302.jpg"></dt>
+                        <dd>意大利新冠肺炎确诊病例累计<a style="color:red">1694</a>例，国家卫健委称武汉疫情快速上升态势得到控制...</dd>
+                      </dl>
+                    </div>
+					
+                    <div class="wk_fzlc_b">
+                      <h4>2020年3月11日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0311.jpg"></dt>
+                        <dd> 世卫组织评估后，认为可将新冠肺炎视为大流行，至此世界各国开始陆续出现新冠肺炎确诊病例，欧洲已经开始出现大范围流行...</dd>
+                      </dl>
+                    </div>
+
+                    <div class="wk_fzlc_s">
+                      <h4>2020年3月13日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0313.jpg"></dt>
+                        <dd>世界卫生组织成立了“新冠肺炎团结应对基金”，以接收个人，公司和机构的捐款...</dd>
+                      </dl>
+                    </div>
+								
+                    <div class="wk_fzlc_b">
+                      <h4>2020年3月18日</h4>
+                      <div class="wk_his_ico"></div>
+                      <dl>
+                        <dt><img src="style/images/date/0318.jpg"></dt>
+                        <dd>WHO发起了“团结试验”，这是一项国际临床试验，旨在通过在世界各地产出可靠数据，以找到最有效的新冠肺炎治疗方法...</dd>
+                      </dl>
+                    </div>
+                  </div>
+				  
+			
+                  <!--首页-发展历程-内部调用代码设置位置--> 
+                  
+                </div>
+                <div id="List2_1"></div>
+              </div>
+            </div>
+            <a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()" onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a> </div>
+          <div class="c"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--page5-->
+  
+        <!--首页-合作客户-内部调用代码设置位置--> 
+        
+      </div>
+    </div>
+  </div>
+  
+
+  <!--index_footer-->
+
+</div>
+<script src="style/js/banner.js" type="text/javascript"></script>
+<div class="clear"></div>
+<div class="wp"><!--[diy=diy1]-->
+  
+  <div id="diy1" class="area"></div>
+  
+  <!--[/diy]--></div>
+<div class="clear"></div>
+<div id="wp" class="wp"> </div>
+<div id="wk_ft" style="display:none; ">
+  <div id="ft" class="wp cl" style="border:0;"> </div>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;">
+</ul>
+
+<script src="style/js/home.js" type="text/javascript"></script>
+<div id="scrolltop"> <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span> </div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<div id="discuz_tips" style="display:none;"></div>
+<script src="style/js/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE>
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>疫情直通车_个人健康申报</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<link rel="stylesheet" type="text/css" href="style/css/style_2_common.css" />
+<link rel="stylesheet" type="text/css" href="style/css/style_2_portal_view.css" />
+<script src="style/js/common.js" type="text/javascript"></script>
+<script src="style/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="style/js/pace.js" type="text/javascript"></script>
+<link href="style/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body id="nv_portal" class="pg_view">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="toptb" class="cl" style="display:none;"> </div>
+<div id="hd" style="background:#FFF; height:60px; border-bottom:1px solid #E6E6E6; ">
+  <div class="clear"></div>
+  <div id="week_nav">
+    <div class="wk_navwp">
+      <div class="wk_lonav">
+        <div class="wk_logo">
+        </div>
+        <div class="wk_inav">
+         <ul class="nav">
+           <li><a href="index.html">首页</a></li>
+           
+           <li><a href="facemask.html" >口罩预约</a></li>
+           
+           <li><a href="news.html" >新闻资讯</a></li>
+           
+           <li><a href="detailed.html" >数据分析</a></li>
+           
+           <li><a href="traffic.html" >人员流动</a></li>
+           
+           <li><a href="rumor.html" >疫情谣言</a></li>
+           
+         </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<div id="mu" class="cl">
+  <div class="wp"> </div>
+</div>
+<script src="style/js/week_nav.js" type="text/javascript"></script>
+<div id="wp" class="wp"> 
+  
+<script src="style/js/forum_viewthread.js" type="text/javascript"></script> 
+<script type="text/javascript">zoomstatus = parseInt(1), imagemaxwidth = '600', aimgcount = new Array();</script>
+
+<style>
+
+.ct2 { border:0; padding-bottom:30px;} 
+
+.vw .d img { max-width:1160px; }
+
+.ie6 .vw .d img { width: expression(this.width > 1160 ? 1160:true); }
+
+			 .smart-green {
+			            margin-left: auto;
+			            margin-right: auto;
+			            max-width: 600px;
+			            background: #F8F8F8;
+			            padding: 30px 30px 20px 30px;
+			            font: 12px Arial, Helvetica, sans-serif;
+			            color: #666;
+			            border-radius: 5px;
+			            -webkit-border-radius: 5px;
+			            -moz-border-radius: 5px;
+			        }
+			
+			        .smart-green h1 {
+			            font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+			            padding: 20px 0px 20px 40px;
+			            display: block;
+			            margin: -30px -30px 10px -30px;
+			            color: #FFF;
+			            background: #9DC45F;
+			            text-shadow: 1px 1px 1px #949494;
+			            border-radius: 5px 5px 0px 0px;
+			            -webkit-border-radius: 5px 5px 0px 0px;
+			            -moz-border-radius: 5px 5px 0px 0px;
+			            border-bottom: 1px solid #89AF4C;
+			        }
+			
+			        .smart-green h1 > span {
+			            display: block;
+			            font-size: 11px;
+			            color: #FFF;
+			        }
+			
+			        .smart-green label {
+			            display: block;
+			            margin: 0px 0px 5px;
+			        }
+			
+			        .smart-green label > span {
+			            float: left;
+			            margin-top: 10px;
+			            color: #5E5E5E;
+			        }
+			
+			        .smart-green input[type="text"], .smart-green textarea, .smart-green select {
+			            color: #555;
+			            height: 30px;
+			            line-height: 15px;
+			            width: 100%;
+			            padding: 0px 0px 0px 10px;
+			            margin-top: 2px;
+			            border: 1px solid #E5E5E5;
+			            background: #FBFBFB;
+			            outline: 0;
+			            -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+			            box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+			            font: normal 14px/14px Arial, Helvetica, sans-serif;
+			        }
+			
+			        .smart-green textarea {
+			            height: 100px;
+			            padding-top: 10px;
+			        }
+			
+			
+			        .smart-green .button {
+			            background-color: #9DC45F;
+			            border-radius: 5px;
+			            -webkit-border-radius: 5px;
+			            -moz-border-border-radius: 5px;
+			            border: none;
+			            padding: 10px 25px 10px 25px;
+			            color: #FFF;
+			            text-shadow: 1px 1px 1px #949494;
+						text-align: center;
+			        }
+			
+			        .smart-green .button:hover {
+			            background-color: #80A24A;
+						cursor:pointer ;
+			        }
+			
+			        .error-msg{
+			            color: red;
+			            margin-top: 10px;
+			        }
+			        .success-msg{
+			            color: #80A24A;
+			            margin-top: 10px;
+			            margin-bottom: 10px;
+			        }
+
+</style>
+  
+</div>
+<div class="wk_news_box">
+  <div class="wk_portalhead_bg">
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <h1 class="ph">为了您和他人的安全 请如实上报情况！</h1>
+ 
+</div>
+<div class="clear"></div>
+<div class="wk_ymbg">
+  <div id="wp" class="wp">
+    <div class="wp"> 
+      
+      <!--[diy=diy1]-->
+      <div id="diy1" class="area"></div>
+      <!--[/diy]--> 
+      
+    </div>
+    <div id="ct" class="ct2 wp cl">
+      <div class="clear"></div>
+      <div class="bm vw">
+        <div class="h hm wk_hm"> </div>
+        
+        <!--[diy=diysummarytop]-->
+        <div id="diysummarytop" class="area"></div>
+        <!--[/diy]--> 
+        
+        <!--[diy=diysummarybottom]-->
+        <div id="diysummarybottom" class="area"></div>
+        <!--[/diy]-->
+        
+        <div class="d"> 
+          
+          <!--[diy=diycontenttop]-->
+          <div id="diycontenttop" class="area"></div>
+          <!--[/diy]-->
+          
+          <table cellpadding="0" cellspacing="0" class="vwtb">
+            <tr>
+              <td id="article_content">
+              <div style="text-align: center;">
+				<form  id="cardh" class="smart-green">
+				    <h1>健康信息卡
+				        <span>请留下你的信息.</span>
+				    </h1>
+				    <label>
+				        <span>姓名 :</span>
+				        <input v-model="form.sname" type="text" class="error" placeholder="请输入你的姓名"/>
+				        <div class="error-msg"></div>
+				    </label>
+				
+				    <label>
+				        <span>学号:</span>
+				        <input v-model="form.sno" type="text"  placeholder="请输入你的学号"/>
+				        <div class="error-msg"></div>
+				    </label>
+				
+				    <label>
+				        <span>学院 :</span>
+				        <select v-model="form.academy" @change="GetClassByCollege()"/>
+							<option v-for="Unit in Unit_names">{{Unit}}</option>
+						</select>
+				        <div class="error-msg"></div>
+				    </label>
+					
+					<label>
+					    <span>班级 :</span>
+					    <select v-model="form.sclass"/>
+							<option v-for="Class in Class_names">{{Class}}</option>
+						</select>
+					    <div class="error-msg"></div>
+					</label>
+						
+				    <label>
+				        <span>健康状况 :</span>
+				       <select v-model="form.heath">
+				       <option value="1">身体健康没有任何问题</option>
+				       <option value="0">身体出现了不适感</option>
+				       </select>
+				        <div class="error-msg"></div>
+				    </label>
+				    <div class="success-msg"></div>
+				    <label>
+				        <span>&nbsp;</span>
+				        <input class="button" value="提交" @click="submit()"/>
+				    </label>
+				</form>
+			  </div>
+<br />
+
+
+              </td>
+            </tr>
+          </table>
+          
+          <!--[diy=diycontentbottom]-->
+          <div id="diycontentbottom" class="area"></div>
+          <!--[/diy]--> 
+          
+          <script src="style/js/home.js" type="text/javascript"></script> 
+          
+          <!--[diy=diycontentclickbottom]-->
+          <div id="diycontentclickbottom" class="area"></div>
+          <!--[/diy]--> 
+          
+        </div>
+        <div class="clear"></div>
+
+        <div class="clear"></div>
+      </div>
+      
+      <!--[diy=diycontentrelatetop]-->
+      <div id="diycontentrelatetop" class="area"></div>
+      <!--[/diy]--><!--[diy=diycontentrelate]-->
+      <div id="diycontentrelate" class="area"></div>
+      <!--[/diy]--> 
+      
+      <!--[diy=diycontentcomment]-->
+      <div id="diycontentcomment" class="area"></div>
+      <!--[/diy]--> 
+      
+    </div>
+  </div>
+  <div class="clear"></div>
+  
+  <div class="wp mtn"> 
+    
+    <!--[diy=diy3]-->
+    <div id="diy3" class="area"></div>
+    <!--[/diy]--> 
+    
+  </div>
+  <input type="hidden" id="portalview" value="1">
+</div>
+
+<div id="wk_ft">
+  <div class="section fp-auto-height">
+  <div class="wk_footer_side">
+     <div class="wk_footer">Copyright © 2020 计算机设计大赛
+     </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<link href="style/css/service.css" rel="stylesheet" type="text/css" />
+
+<style>
+	#cs_box {width:120px; height:235px; color:#FFF; background:#e6162d; position:fixed; right:10px; top:100px; border-radius:10px; z-index:1000}
+	#cs_box span {height:20px; line-height:20px;display:block;}
+	.cs_close {color:#FFF; position:absolute; right:10px; top:8px; cursor:pointer; font-size:20px;font-family:Verdana}
+	.cs_title {font-size:14px; margin:10px; font-weight:bold;}
+	.cs_img {width:100px; height:100px; background:#FFF; margin:10px;background:url(./style/images/renl.png) no-repeat; background-size:100% 100%;}
+	.cs_info {font-size:12px; margin:0px 10px; overflow:hidden; text-align:center;}
+	.cs_btn {width:100px; height:25px; background:#333; margin:5px 10px; border-radius:5px; font-size:12px; line-height:25px; color:#FFF; text-align:center; cursor:pointer;}
+</style>
+<div id='cs_box'>
+	<span class='cs_title'>人脸认证管理</span>
+	<div class='cs_img'></div>
+	<span class='cs_info'>根据面部特征进</span>
+	<span class='cs_info'>行身份认证</span>
+</div>
+
+
+<script src="style/js/home.js" type="text/javascript"></script>
+
+<script>
+	var vm = new Vue({
+		el:"#cardh",
+		data:{
+			form:{
+				sname:'',
+				heath:'',
+				sno:'',
+				academy:'',
+				sclass:''
+			},
+			Unit_names:{},
+			Class_names:{}
+		},
+		methods:{
+			submit(){
+				var form1 = JSON.stringify(this.form);
+				console.log(form1)
+				localStorage.setItem('form1',form1);
+				window.location.href="facematching.html";
+			},
+			GetClassByCollege(){
+				var  College = {
+					college:this.form.academy
+				}
+				var json = JSON.stringify(College);
+				console.log(json)
+				axios({
+					method:'post',
+					url:"http://120.55.67.204:8188/unit/GetClassByCollege",
+				    headers: {
+				      'Content-Type': 'application/json'
+				    },
+					data:json
+				}).then(res=>{
+					console.log(res.data.message)
+					this.Class_names = res.data.message
+				}).catch(err=>{
+					console.log(err)
+				})
+			}
+		},
+		mounted(){
+				axios({
+					method:'post',
+					url:"http://120.55.67.204:8188/unit/GetAllUnit"
+				}).then(res=>{
+					console.log(res.data.message)
+					this.Unit_names = res.data.message
+				}).catch(err=>{
+					console.log(err)
+				})
+		}
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>疫情直通车_工商小站</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<style>
+			html{height:100%}
+			body{min-height:100%}
+			.el-header,.el-footer {
+			    background-color: #343a40;
+			    color: #ffffff;
+			    text-align: center;
+			    line-height: 3.75rem; 	
+			  }
+			.el-page-header	{
+				height:3.75rem;
+				font-size: 20px;
+				line-height: 3.75rem;
+				font-weight: 700;
+			}
+			.el-page-header__content {
+				color:#fff;
+			}  
+			.el-aside {
+			    background-color: #D3DCE6;
+			    color: #333;
+			    text-align: center;
+			  }
+			.el-timeline-item__node {
+				background-color: #a00f13;
+			}
+			.el-timeline-item__tail {
+				border-left:2px dashed #343a40
+			}
+			.el-main {
+			    background-color: #909399;
+			    color: #333;
+			    text-align: center;
+			    line-height: 160px;
+			  }
+			  
+			body > .el-container {
+			    margin-bottom: 40px;
+			  }
+        @media screen and (min-width: 1100px){
+            .aside{
+                background: #e9e9eb;
+            }
+        }
+        @media screen and (max-width: 808px) {
+            .aside{
+                display:none;
+            }
+        }		
+		
+		</style>
+	</head>
+	<body>
+	<div id="shoot">
+		<el-container>
+		  <el-header>
+			<el-page-header content="人脸识别系统" id="header">
+			</el-page-header>
+		  </el-header>
+		  <el-container id="changeHei" style="height:50rem;">
+			<el-aside width="500px" class="aside">
+				<div><h3>认证流程</h3></div>
+			  	<div class="block">
+			  	  <el-timeline>
+			  	    <el-timeline-item timestamp="第一步" placement="top">
+			  	      <el-card>
+			  	        <h4>对准人脸</h4>
+			  	        <p>确保画面清晰，头部约占整个画面的1/2</p>
+			  	      </el-card>
+			  	    </el-timeline-item>
+			  	    <el-timeline-item timestamp="第二步" placement="top">
+			  	      <el-card>
+			  	        <h4>点击“拍照”</h4>
+			  	        <p>放松面部，确保能正确识别</p>
+			  	      </el-card>
+			  	    </el-timeline-item>
+			  	    <el-timeline-item timestamp="第三步" placement="top">
+			  	      <el-card>
+			  	        <h4>点击“上传”</h4>
+			  	        <p>确认上传的照片无误，即可上传照片</p>
+			  	      </el-card>
+			  	    </el-timeline-item>
+					<el-timeline-item timestamp="第四步" placement="top">
+					  <el-card>
+					    <h4>返回信息</h4>
+					    <p>稍等片刻，返回平台的验证信息</p>
+					  </el-card>
+					</el-timeline-item>
+			  	  </el-timeline>
+			  	</div>
+			</el-aside>
+		    <el-container class="maina">
+				<el-main>
+				    <el-row :gutter="10" >
+				      <el-col style="height: 31.25rem; width:100%;">
+							  <video id="video" style="height:37.5rem;;" autoplay="autoplay"></video>
+							  <canvas id="canvas" style="width:37.5rem;height:18.75rem;display: none;"></canvas>    
+					  </el-col>				      
+				    </el-row>
+				</el-main>
+			  <el-footer>
+				  <el-button id="snap" @click="takePhoto">拍照</el-button>
+				  <el-button type="primary" @click="upload">开始验证<i class="el-icon-upload el-icon--right"></i></el-button>
+				  <el-button type="danger" @click="stopMedia">关闭摄像头</el-button>
+			  </el-footer>
+		    </el-container>
+
+		  </el-container>
+		</el-container>
+	</div>	
+		
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<script>
+			var form = JSON.parse(localStorage.form1);
+			console.log(typeof(form))
+			console.log(form)
+			
+			var back = document.getElementsByClassName("")
+			var vm = new Vue({
+				el:"#shoot",
+				data:{
+					form2:{
+					}
+				},
+				methods:{
+					getMedia() {
+					     let constraints = {
+							 video: {width: 200,height: 200},
+					         audio: true
+					     };
+					     //获得video摄像头区域
+					     let video = document.getElementById("video");
+					     //这里介绍新的方法，返回一个 Promise对象
+					     // 这个Promise对象返回成功后的回调函数带一个 MediaStream 对象作为其参数
+					     // then()是Promise对象里的方法
+					     // then()方法是异步执行，当then()前的方法执行完后再执行then()内部的程序
+					     // 避免数据没有获取到
+					     let promise = navigator.mediaDevices.getUserMedia(constraints);
+					     promise.then(function (MediaStream) {
+					         video.srcObject = MediaStream;
+					         video.play();
+					     });
+					 },
+					takePhoto()	{
+						console.log(this);
+						let video = document.getElementById("video");
+						let canvas = document.getElementById("canvas");
+						let ctx = canvas.getContext('2d');
+						ctx.drawImage(video, 0, 0,200,200);
+						 video.style.display="none";
+						canvas.style.display="inline-block";
+						//将照片转为Base64
+						var imgData = canvas.toDataURL();  
+						console.log(imgData)
+						var imgData1=imgData.toString(); 
+						// var imgData1 = imgData.substring(22);
+						// this.$store.commit('submitImg',imgData1)
+						this.form2 = form
+						this.form2["file"] = imgData1;
+						console.log(typeof(imgData1));
+						console.log(vm.form2)
+						console.log(this.form2);
+						
+						this.$options.methods.stopMedia();
+					},
+					stopMedia() {
+						let stream = document.getElementById('video').srcObject;
+						let tracks = stream.getTracks();
+						
+						tracks.forEach(function(track) {
+						  track.stop();
+						})
+					  },
+					changeHei() {
+						let obj = document.getElementById("changeHei");
+						console.log(obj);
+						let web = window.innerHeight;
+						let header = document.getElementById("header").clientHeight;
+						console.log(web,header);
+						obj.style.height = parseInt(web - header);
+						console.log(obj.style.height);
+					},
+				upload() {
+					console.log(typeof(vm._data.form2)) 
+					var sub = vm._data.form2
+					axios({
+						method:'post',
+						url:'http://120.55.67.204:8188/heath/insert',
+						 data:sub	
+						  }).then(res=>{
+							  // console.log(res.data.code);
+						const loading = this.$loading({
+						          lock: true,
+						          text: '正在验证....',
+						          spinner: 'el-icon-loading',
+						          background: 'rgba(0, 0, 0, 0.7)'
+						        });
+						          loading.close();
+					     if(res.data.code == 401){
+							  alert("人脸不匹配！！请重新验证");
+							   window.location.href="submit.html"
+						 }
+							
+						if(res.data.code == 200){
+							alert("人脸验证成功！！");
+						}		
+						 setTimeout(() => {
+								  window.location.href="index.html"
+						        }, 1500);
+					}).catch(error=>{
+						console.log(error);
+					})
+				}	
+			},
+				mounted(){
+					this.getMedia(); //页面加载时调用摄像头
+					this.changeHei();
+				}
+			})
+		</script>
+	</body>
+</html>

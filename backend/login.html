@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>后台管理</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+   <link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center ">
+            <div class="col-md-12">
+                <br /><br />
+                <h2>后台管理 ：登陆</h2>
+               
+                <h5>( 登录以获取访问权限 )</h5>
+                 <br />
+            </div>
+        </div>
+         <div class="row ">
+               
+                  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong>   输入要登录的详细信息 </strong>  
+                            </div>
+                            <div class="panel-body">
+                                <form id="login">
+                                       <br />
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                                            <input type="text" class="form-control" placeholder="Your Username " v-model="form.username"/>
+                                        </div>
+                                          <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" class="form-control"  placeholder="Your Password" v-model="form.password"/>
+                                        </div>
+                                    <div class="form-group">
+                                            <span class="pull-right">
+                                                   <a href="#" >忘记密码 ? </a> 
+                                            </span>
+                                        </div>
+                                     
+                                     <span href="#" class="btn btn-primary" @click="login()">现在登陆</span>
+                                    <hr />
+                                    没注册 ? <a href="registeration.html" >戳这里 </a> 
+                                    </form>
+                            </div>
+                           
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+
+     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
+   <script>
+	   var vm = new Vue({
+		   el:"#login",
+		   data:{
+			   form:{
+				   username:'',
+				   password:''
+			   }
+		   },
+		   methods:{
+			  login(){
+				  console.log(this.form)
+				  var json1 = this.form
+				  console.log(json1)
+				  axios({
+				  	method:'post',
+				  	url:"http://120.55.67.204:8188/newlogin",
+					data:json1
+				  }).then(res=>{
+				  	console.log(res)
+					if (res.data.code !== 200)  return this.$message.error('登录失败----'+ res.message)
+					// 将登录成功之后的token保存到客户端的sessionStorage中
+					this.$message.success('登录成功！！')
+					window.sessionStorage.setItem('token', res.data.message)
+					setTimeout(()=>{
+						window.location.href="index.html"
+					},2000)	
+					// 通过编程式导航跳转到后台主页，路由地址是 /home
+					// VueRouter.prototype.push('/index')
+				  }).catch(err=>{
+				      console.log(err);
+				  })
+			  }
+		   }
+	   })
+   </script>
+</body>
+</html>
